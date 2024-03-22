@@ -31,7 +31,6 @@ main {
 
 main>section,
 main>article {
-    display: flex;
     flex-direction: column;
     color: black;
     background-color: #fff;
@@ -144,6 +143,12 @@ article {
     color: #fff;
 }
 
+div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
 /* Links */
 
 a[target='_blank'] {
@@ -161,8 +166,10 @@ footer {
     background-color: #343a40;
     color: #fff;
     padding: 20px;
-    text-align: center;
-    bottom: 0;
+    gap: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 footer a {
