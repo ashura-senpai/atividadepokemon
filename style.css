@@ -1,3 +1,4 @@
+/* Estilos básicos */
 body,
 h1,
 h2,
@@ -14,7 +15,6 @@ td {
 }
 
 /* Estilos gerais */
-
 body {
     font-family: 'Arial', sans-serif;
     color: #333;
@@ -36,12 +36,21 @@ main>article {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 section img,
 article img {
-  max-width: 100%;
-  height: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 section h1,
@@ -66,11 +75,10 @@ ul li {
 }
 
 /* Header */
-
 header {
     background-color: #007bff;
     color: #fff;
-    padding: 20px;
+    padding: 20px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -81,16 +89,13 @@ header h1 {
 }
 
 /* Lista de navegação */
-
 nav ul {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    background-color: #343a40;
+    background-color: #f0f0f0;
     padding: 10px;
-    margin-bottom: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 nav li {
@@ -109,7 +114,6 @@ nav a:hover {
 }
 
 /* Seções */
-
 #curiosidades li::marker {
     content: '🔍';
 }
@@ -148,7 +152,7 @@ nav a:hover {
 
 #info-squirtle img:hover,
 #evolucao img:hover {
-    transform: scale(1.1)
+    transform: scale(1.1);
 }
 
 article {
@@ -163,7 +167,6 @@ div {
 }
 
 /* Links */
-
 a[target='_blank'] {
     color: #4592c4;
     font-weight: bold;
@@ -174,7 +177,6 @@ a[target='_blank']:hover {
 }
 
 /* Footer */
-
 footer {
     background-color: #343a40;
     color: #fff;
