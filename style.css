@@ -252,10 +252,6 @@ footer a[href]:hover {
   opacity: 0.8;
 }
 
-#footer-down {
-  position: fixed;
-}
-
 @keyframes fadeIn {
   0% {
     opacity: 0;
