@@ -7,7 +7,7 @@ function getEvolucaoFromURL() {
     const evolucao = getEvolucaoFromURL();
     if (evolucao) {
       document.title = `Página do ${evolucao}`;
-      const h3Title = document.querySelector('#pokemon-image h3');
+      const h3Title = document.querySelector('#htres');
       if (h3Title) {
         h3Title.textContent = `Informações sobre ${evolucao}`;
       }
@@ -40,4 +40,4 @@ function getEvolucaoFromURL() {
     fetchPokemonData();
   }
   
-window.onload = main;  
+  window.onload = main;  
