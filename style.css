@@ -1,4 +1,3 @@
-/* Reset de estilos para garantir consistência em diferentes navegadores */
 body,
 h1,
 h2,
@@ -25,7 +24,7 @@ body {
   font-family: 'Arial', sans-serif;
   color: #333;
   background-color: #f4f4f4;
-  margin: 0; /* Correção: Removido para garantir que não haja espaçamento extra */
+  margin: 0; /* garantir que não haja espaçamento extra */
 }
 
 main {
@@ -72,7 +71,7 @@ p {
 }
 
 ul {
-  list-style-position: inside; /* Correção: Alterado para aplicar a todos os elementos ul */
+  list-style-position: inside; /* aplica a todos os elementos ul */
 }
 
 /* Header */
@@ -95,7 +94,7 @@ header h1 {
   }
 
   header h2 {
-    font-size: 18px; /* Correção: Alterado de h2 para header h2 */
+    font-size: 18px; 
   }
 }
 
