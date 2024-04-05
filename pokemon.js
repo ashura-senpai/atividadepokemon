@@ -7,12 +7,12 @@ function getEvolucaoFromURL() {
     const evolucao = getEvolucaoFromURL();
     if (evolucao) {
       document.title = `Página do ${evolucao}`;
-      const headerTitle = document.querySelector('#header h1');
-      if (headerTitle) {
-        headerTitle.textContent = evolucao;
+      const h3Title = document.querySelector('#pokemon-image h3');
+      if (h3Title) {
+        h3Title.textContent = `Informações sobre ${evolucao}`;
       }
     }
-  }
+  }  
   
   function fetchPokemonData() {
     const evolucao = getEvolucaoFromURL();
