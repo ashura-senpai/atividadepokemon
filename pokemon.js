@@ -21,10 +21,18 @@ function getEvolucaoFromURL() {
       fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
+          const sprites = data.sprites;
+          const spriteUrls = Object.values(sprites).filter(sprite => typeof sprite === 'string');
+          
           const pokemonImage = document.createElement('img');
-          pokemonImage.src = data.sprites.front_default;
+          pokemonImage.src = spriteUrls[2];
           pokemonImage.alt = evolucao;
           pokemonImage.setAttribute('aria-label', `Imagem de ${evolucao}`);
+  
+          pokemonImage.addEventListener('click', () => {
+            const nextIndex = (spriteUrls.indexOf(pokemonImage.src) + 1) % spriteUrls.length;
+            pokemonImage.src = spriteUrls[nextIndex];
+          });
   
           const pokemonImageSection = document.querySelector('#pokemon-image');
           if (pokemonImageSection) {
@@ -34,7 +42,7 @@ function getEvolucaoFromURL() {
         .catch(error => console.error('Erro ao obter imagem do Pokémon:', error));
     }
   }
-
+  
   function updateVisitCounter() {
     let visitData = localStorage.getItem('visitData');
   
@@ -74,7 +82,6 @@ function getEvolucaoFromURL() {
       footer.appendChild(paragraph);
     }
   }
-
   
   function main() {
     updatePageTitleAndHeader();
