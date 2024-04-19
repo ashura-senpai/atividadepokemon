@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const todoList = document.getElementById('todo-list');
   
     function loadTodoList() {
-      const todos = JSON.parse(localStorage.getItem('todos')) || [];
+      const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
       todoList.innerHTML = '';
-      todos.forEach(todo => {
+      tasks.forEach(todo => {
         const li = document.createElement('li');
         li.textContent = todo;
         todoList.appendChild(li);
@@ -19,9 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       const todoText = todoInput.value.trim();
       if (todoText) {
-        const todos = JSON.parse(localStorage.getItem('todos')) || [];
-        todos.push(todoText);
-        localStorage.setItem('todos', JSON.stringify(todos));
+        const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        tasks.push(todoText);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
         todoInput.value = '';
         loadTodoList();
       }
