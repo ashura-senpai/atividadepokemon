@@ -5,16 +5,36 @@ document.addEventListener('DOMContentLoaded', () => {
   const todoList = document.getElementById('todo-list');
 
   function loadTodoList() {
-      const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-      todoList.innerHTML = '';
-      tasks.forEach(todo => {
-          const li = document.createElement('li');
-          li.textContent = todo.title + ': ' + todo.text; // exibe o título e texto
-          todoList.appendChild(li);
-      });
-  }
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    const todoList = document.getElementById('todo-list'); // Seleciona o elemento ul
 
-  loadTodoList();
+    todoList.innerHTML = ''; // Limpa o conteúdo anterior
+
+    tasks.forEach(todo => {
+        // Cria um elemento li para cada tarefa
+        const taskItem = document.createElement('li');
+        taskItem.style.border = '1px solid black'; // Adiciona borda ao item da lista
+        taskItem.style.listStyle = 'none'; // Remove o marcador de lista
+
+        // Cria um elemento h2 para o título da tarefa
+        const taskTitle = document.createElement('h2');
+        taskTitle.textContent = todo.title; // Define o texto do título como o título da tarefa
+
+        // Cria um elemento p para a descrição da tarefa
+        const taskDescription = document.createElement('p');
+        taskDescription.textContent = todo.text; // Define o texto da descrição como o texto da tarefa
+        taskDescription.style.whiteSpace = 'pre-wrap'; // Aplica o estilo para exibir quebras de linha
+
+        // Adiciona os elementos ao item da lista
+        taskItem.appendChild(taskTitle);
+        taskItem.appendChild(taskDescription);
+
+        // Adiciona o item da lista ao todoList
+        todoList.appendChild(taskItem);
+    });
+}
+
+loadTodoList();
 
   todoForm.addEventListener('submit', (e) => {
       e.preventDefault();

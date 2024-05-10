@@ -66,6 +66,10 @@
             margin-top: 10px;
         }
 
+        li::marker {
+            content: none;
+        }
+
     </style>
 
     <header>
@@ -83,12 +87,13 @@
         </section>
 
         <section>
-            <h2>Lista de Tarefas</h2>
-            <ul id="todo-list"></ul>
+            <ul>
+                <li id="todo-list"></li>
+            </ul>
         </section>
     </main>
 
-    <footer aria-label="Rodapé">
+    <footer class="fixed-footer" aria-label="Rodapé">
         <p>&copy; 2024 TODO LIST.</p>
     </footer>
 
