@@ -1,35 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
   const todoForm = document.getElementById('todo-form');
   const todoInputTitle = document.getElementById('input-title');
-  const todoInputText = document.getElementById('input-text');
+  const todoInputDescription = document.getElementById('input-text');
   const todoList = document.getElementById('todo-list');
 
   function loadTodoList() {
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    const todoList = document.getElementById('todo-list'); // Seleciona o elemento ul
+    const todoList = document.getElementById('todo-list');
 
-    todoList.innerHTML = ''; // Limpa o conteúdo anterior
+    todoList.innerHTML = '';
 
     tasks.forEach(todo => {
-        // Cria um elemento li para cada tarefa
         const taskItem = document.createElement('li');
-        taskItem.style.border = '1px solid black'; // Adiciona borda ao item da lista
-        taskItem.style.listStyle = 'none'; // Remove o marcador de lista
+        taskItem.style.border = '1px solid black';
+        taskItem.style.listStyle = 'none';
 
-        // Cria um elemento h2 para o título da tarefa
         const taskTitle = document.createElement('h2');
-        taskTitle.textContent = todo.title; // Define o texto do título como o título da tarefa
+        taskTitle.textContent = todo.title;
 
-        // Cria um elemento p para a descrição da tarefa
         const taskDescription = document.createElement('p');
-        taskDescription.textContent = todo.text; // Define o texto da descrição como o texto da tarefa
-        taskDescription.style.whiteSpace = 'pre-wrap'; // Aplica o estilo para exibir quebras de linha
+        taskDescription.textContent = todo.text; 
+        taskDescription.style.whiteSpace = 'pre-wrap';
 
-        // Adiciona os elementos ao item da lista
         taskItem.appendChild(taskTitle);
         taskItem.appendChild(taskDescription);
-
-        // Adiciona o item da lista ao todoList
         todoList.appendChild(taskItem);
     });
 }
@@ -39,13 +33,13 @@ loadTodoList();
   todoForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const todoTitle = todoInputTitle.value.trim(); // pega o valor do título
-      const todoText = todoInputText.value.trim(); // pega o valor do texto
+      const todoText = todoInputDescription.value.trim(); // pega o valor do texto
       if (todoTitle && todoText) { // verifica se foi preenchido
           const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
           tasks.push({ title: todoTitle, text: todoText }); // armazena título e texto como objeto
           localStorage.setItem('tasks', JSON.stringify(tasks));
           todoInputTitle.value = ''; // limpa o input
-          todoInputText.value = ''; // limpa o input
+          todoInputDescription.value = ''; // limpa o input
           loadTodoList();
       }
   });
