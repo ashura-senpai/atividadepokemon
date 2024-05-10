@@ -1,32 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const todoForm = document.getElementById('todo-form');
-    const todoInput = document.getElementById('todo-input');
-    const todoList = document.getElementById('todo-list');
-  
-    function loadTodoList() {
+  const todoForm = document.getElementById('todo-form');
+  const todoInputTitle = document.getElementById('input-title');
+  const todoInputText = document.getElementById('input-text');
+  const todoList = document.getElementById('todo-list');
+
+  function loadTodoList() {
       const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
       todoList.innerHTML = '';
       tasks.forEach(todo => {
-        const li = document.createElement('li');
-        li.textContent = todo;
-        todoList.appendChild(li);
+          const li = document.createElement('li');
+          li.textContent = todo.title + ': ' + todo.text; // exibe o título e texto
+          todoList.appendChild(li);
       });
-    }
-  
-    loadTodoList();
-  
-    todoForm.addEventListener('submit', (e) => {
+  }
+
+  loadTodoList();
+
+  todoForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const todoText = todoInput.value.trim();
-      if (todoText) {
-        const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-        tasks.push(todoText);
-        localStorage.setItem('tasks', JSON.stringify(tasks));
-        todoInput.value = '';
-        loadTodoList();
+      const todoTitle = todoInputTitle.value.trim(); // pega o valor do título
+      const todoText = todoInputText.value.trim(); // pega o valor do texto
+      if (todoTitle && todoText) { // verifica se foi preenchido
+          const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+          tasks.push({ title: todoTitle, text: todoText }); // armazena título e texto como objeto
+          localStorage.setItem('tasks', JSON.stringify(tasks));
+          todoInputTitle.value = ''; // limpa o input
+          todoInputText.value = ''; // limpa o input
+          loadTodoList();
       }
-    });
   });
+});
   
   function updateVisitCounter() {
     let visitData = localStorage.getItem('visitData');
