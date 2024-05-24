@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   editForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    // Functionality for editing can be implemented here
+    // lógica do edit viria aqui
     closeEditDialog();
   });
 
